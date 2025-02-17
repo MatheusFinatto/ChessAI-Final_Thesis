@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"  # Adjust this if needed
-  publish = "front/dist"  # Adjust based on your framework's output folder
+  publish = "/dist"  # Adjust based on your framework's output folder
 
 [[redirects]]
   from = "/*"
