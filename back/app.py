@@ -13,6 +13,7 @@ from common import get_best_move, DEPTH
 app = Flask(__name__)
 CORS(app)
 BOOK_PATH = "../Titans.bin"
+PORT = 10000
 
 
 def find_best_move(fen):
