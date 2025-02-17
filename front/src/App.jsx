@@ -105,8 +105,8 @@ export default function PlayRandomMoveEngine() {
         style={{
           width: "95%",
           height: "95%",
-          maxHeight: "1000px",
-          maxWidth: "1000px",
+          maxHeight: "80vh",
+          maxWidth: "80vh",
         }}
       >
         <Chessboard position={game.fen()} onPieceDrop={onDrop} />
