@@ -85,10 +85,8 @@ export default function PlayRandomMoveEngine() {
     });
     setGame(gameCopy);
 
-    // illegal move
     if (move === null) return false;
 
-    // store timeout so it can be cleared on undo/reset so computer doesn't execute move
     const newTimeout = setTimeout(makeMove, 200);
     setCurrentTimeout(newTimeout);
     return true;
