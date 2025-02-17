@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"  # Adjust this if needed
+  publish = "front/dist"  # Adjust based on your framework's output folder
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
