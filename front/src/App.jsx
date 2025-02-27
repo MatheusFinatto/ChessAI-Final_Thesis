@@ -51,20 +51,28 @@ export default function PlayRandomMoveEngine() {
     );
 
   async function calculateMove() {
-    fetch("http://localhost:5000/move", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ fen: game.fen() }),
-    }).then((response) => {
-      response.json().then((data) => {
-        console.log("🚀 ~ file: App.jsx:67 ~ response.json ~ data:", data);
-        safeGameMutate((game) => {
-          game.move(data.move);
-        });
+    try {
+      const response = await fetch(
+        "https://chessai-final-thesis.onrender.com/move",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ fen: game.fen() }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      safeGameMutate((game) => {
+        game.move(data.move);
       });
-    });
+    } catch (error) {
+      console.error("Error fetching move:", error);
+    }
   }
 
   function makeMove() {

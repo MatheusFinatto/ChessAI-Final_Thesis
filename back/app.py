@@ -15,7 +15,8 @@ from common import get_best_move, DEPTH
 
 app = Flask(__name__)
 CORS(app)
-BOOK_PATH = "../Titans.bin"
+# use absolute path for the book
+BOOK_PATH = os.path.expanduser("./Titans.bin")  # Expands the '~' to the full home directory path
 PORT = 10000
 
 
